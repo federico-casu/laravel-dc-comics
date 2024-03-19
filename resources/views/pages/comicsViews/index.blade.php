@@ -36,19 +36,26 @@
                         <th scope="col">Series</th>
                         <th scope="col">Sale date</th>
                         <th scope="col">Type</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($comics as $comic)
-                        <tr class="">
+                        <tr class="lh-1">
                             <td>{{ $comic->id }}</td>
-                            <td>{{ $comic->title }}</td>
+                            <td>
+                                <a href="{{ route('comics.show', $comic->id) }}">{{ $comic->title }}</a>
+                            </td>
                             {{-- <td>{{ $comic->description }}</td> --}}
                             {{-- <td>{{ $comic->thumb }}</td> --}}
                             <td>{{ $comic->price }}</td>
                             <td>{{ $comic->series }}</td>
                             <td>{{ $comic->sale_date }}</td>
                             <td>{{ $comic->type }}</td>
+                            <td class="d-flex justify-content-center align-items-center gap-2">
+                                <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-primary">Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
