@@ -2,7 +2,11 @@
 
 @section('title', 'DC | Show')
 
+
 @section('main')
+    <figure id="jumbotron">
+        <img src="{{ Vite::asset('resources/img/jumbotron.jpg')}}" alt="">
+    </figure>
     <div class="container">
         {{-- <h1>{{ $comic->title }}</h1>
         <p>

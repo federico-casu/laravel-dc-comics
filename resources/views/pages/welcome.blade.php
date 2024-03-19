@@ -26,7 +26,7 @@
                     </a>
                 @endforeach
         
-                <span class="load-more">load more</span>
+                <a href="{{ route('comics.index') }}" class="load-more">show list</a>
             </div>
         </section>
 

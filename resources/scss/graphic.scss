@@ -142,8 +142,13 @@ main {
             }
 
             .load-more {
+                background-color: $blue_DC;
+                padding: 0.8rem 1rem;
+                text-transform: uppercase;
+                font-weight: bold;
                 margin: 0 auto;
-                cursor: pointer;
+                color: white;
+                text-decoration: none;
             }
         }
     }
