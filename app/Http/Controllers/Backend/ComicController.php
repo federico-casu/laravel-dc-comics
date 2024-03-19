@@ -46,8 +46,70 @@ class ComicController extends Controller
     public function show(Comic $comic)
     {
         // $comic = Comic::find($id);
+
+        $headerNavLinks = [
+            "Characters",
+            "Comics",
+            "Movies",
+            "TV",
+            "Games",
+            "Collectibles",
+            "Videos",
+            "Fans",
+            "News",
+            "Shop"
+        ];
+
+        $footerNavSections = [
+            [
+                "title" => "DC Comics",
+                "links" => [
+                    "Characters",
+                    "Comics",
+                    "Movies",
+                    "TV",
+                    "Games",
+                    "Videos",
+                    "News"
+                ]
+            ],
+            [
+                "title" => "Shop",
+                "links" => [
+                    "Shop DC",
+                    "Shop DC Collectibles"
+                ]
+            ],
+            [
+                "title" => "DC",
+                "links" => [
+                    "Terms of Use",
+                    "Privacy policy (New)",
+                    "Ad Choices",
+                    "Advertising",
+                    "Jobs",
+                    "Subscriptions",
+                    "Talent Workshops",
+                    "CPSC Certificates",
+                    "Ratings",
+                    "Shop Help",
+                    "Contact Us"
+                ]
+            ],
+            [
+                "title" => "Sites",
+                "links" => [
+                    "DC",
+                    "MAD Magazine",
+                    "DC Kids",
+                    "DC Universe",
+                    "DC Power Visa",
+                ]
+            ]
+        ];
+        $socials = [ 'footer-facebook.png', 'footer-periscope.png', 'footer-pinterest.png', 'footer-twitter.png', 'footer-youtube.png' ];
         
-        return view('pages.comicsViews.show', compact('comic'));
+        return view('pages.comicsViews.show', compact('comic', 'headerNavLinks', 'footerNavSections', 'socials'));
     }
 
     /**

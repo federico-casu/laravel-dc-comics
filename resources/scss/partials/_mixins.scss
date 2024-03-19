@@ -1,0 +1,47 @@
+// mixins
+
+@use './variables' as *;
+
+@mixin d-flex {
+    display: flex;
+}
+
+@mixin flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin d-flex-row-center {
+    @include d-flex;
+    @include flex-center;
+    flex-direction: row;
+}
+
+@mixin d-flex-column-center {
+    @include d-flex;
+    @include flex-center;
+    align-items: center;
+}
+
+@mixin bg-image-top-cover {
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@mixin bg-image-center-cover {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@mixin btn {
+    padding: 0.8rem;
+    text-transform: uppercase;
+}
+
+@mixin btn-transparent-blue {
+    border: 2px solid $blue_DC;
+    background-color: transparent;
+    color: white;
+}
