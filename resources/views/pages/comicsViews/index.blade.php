@@ -54,7 +54,11 @@
                             <td>{{ $comic->type }}</td>
                             <td class="d-flex justify-content-center align-items-center gap-2">
                                 <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
+                                <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
