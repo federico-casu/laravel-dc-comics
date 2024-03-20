@@ -6,7 +6,7 @@
 
 @section('main')
     <main>
-        <figure id="jumbotron">
+        <figure class="jumbotron">
             <img src="{{ Vite::asset('resources/img/jumbotron.jpg')}}" alt="">
         </figure>
 
@@ -26,11 +26,11 @@
                     </a>
                 @endforeach
         
-                <a href="{{ route('comics.index') }}" class="load-more">show list</a>
             </div>
+            <a href="{{ route('comics.index') }}" class="load-more">show list</a>
         </section>
 
-        <section id="categories">
+        <section class="categories">
             <div class="container">
                 @foreach ($categories as $category)
                     <div>

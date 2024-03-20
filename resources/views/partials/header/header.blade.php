@@ -8,7 +8,7 @@
             <ul>
                 @foreach ($headerNavLinks as $item)
                     <li>
-                        <a href="#">{{ $item }}</a>
+                        <a href="{{ route('HomePage') }}">{{ $item }}</a>
                     </li>
                 @endforeach
             </ul>

@@ -73,7 +73,7 @@ header {
 }
 
 main {
-    #jumbotron {
+    .jumbotron {
         max-height: 40vh;
 
         img {
@@ -86,6 +86,9 @@ main {
 
     .content {
         background-color: $black_DC;
+        text-align: center;
+        padding-bottom: 3rem;
+
         #comics {
             color: white;
             // height: 100%;
@@ -141,20 +144,22 @@ main {
                 left: -10px;
             }
 
-            .load-more {
-                background-color: $blue_DC;
-                padding: 0.8rem 1rem;
-                text-transform: uppercase;
-                font-weight: bold;
-                margin: 0 auto;
-                color: white;
-                text-decoration: none;
-            }
+        }
+
+        .load-more {
+            background-color: $blue_DC;
+            padding: 0.8rem 1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin: 0 auto;
+            color: white;
+            text-decoration: none;
         }
     }
 
-    #categories {
+    .categories {
         background-color: $blue_DC;
+        min-height: 4rem;
 
         > .container {
             @include d-flex;
@@ -195,6 +200,45 @@ main {
                 figure {
                     width: 40%;
                 }
+            }
+        }
+    }
+
+    .comic-area {
+        padding: 3rem 5rem;
+        position: relative;
+        .comic-thumb {
+            width: fit-content;
+            height: fit-content;
+            position: absolute;
+            top: -15.5rem;
+            
+            > img {
+                max-height: 25vh;
+            }
+        }
+
+        .comic-description {
+            margin-block: 1rem 2rem;
+            line-height: 160%;
+        }
+
+        h4 {
+            margin-bottom: 1rem;
+        }
+
+        .comic-specs {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            width: 40%;
+
+            li {
+                display: flex;
+                justify-content: space-between;
+                border-top: 1px solid lightgrey;
+                padding-block: .5rem;
             }
         }
     }
