@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ComicController extends Controller
 {
@@ -14,7 +15,7 @@ class ComicController extends Controller
     public function index()
     {
         $comics = Comic::all();
-        
+
         return view('pages.comicsViews.index', compact('comics'));
     }
 
@@ -31,6 +32,10 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|unique:comics|max:100'
+        ]);
+
         $formData = $request->all();
 
         $newComic = new Comic();
@@ -107,8 +112,8 @@ class ComicController extends Controller
                 ]
             ]
         ];
-        $socials = [ 'footer-facebook.png', 'footer-periscope.png', 'footer-pinterest.png', 'footer-twitter.png', 'footer-youtube.png' ];
-        
+        $socials = ['footer-facebook.png', 'footer-periscope.png', 'footer-pinterest.png', 'footer-twitter.png', 'footer-youtube.png'];
+
         return view('pages.comicsViews.show', compact('comic', 'headerNavLinks', 'footerNavSections', 'socials'));
     }
 
@@ -117,8 +122,8 @@ class ComicController extends Controller
      */
     public function edit(string $id)
     {
-        $comic = Comic::find($id);
-        
+        $comic = Comic::findOrFail($id);
+
         return view('pages.comicsViews.edit', compact('comic'));
     }
 
@@ -127,13 +132,21 @@ class ComicController extends Controller
      */
     public function update(Request $request, string $id)
     {
-       $formData = $request->all();
 
-       $comic = Comic::find($id);
-       
-       $comic->update($formData);
+        $request->validate([
+            'title' => [ 
+                'required', 
+                Rule::unique('comics')->ignore($id)     
+            ]
+        ]);
 
-       return redirect()->route('comics.index');
+        $formData = $request->all();
+
+        $comic = Comic::findOrFail($id);
+
+        $comic->update($formData);
+
+        return redirect()->route('comics.index');
     }
 
     /**
